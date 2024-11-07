@@ -136,6 +136,8 @@
             <div id="sendContainer" style="display: none;">
                 <p id="sendMessage">I love you ❤️💗 very very much Cate😘😘<br>To send your answers, tap the button below:</p>
                 <button type="submit">Send Answers</button>
+                <p>Having a problem sending the answers? Press the copy button to copy your answers and paste them on WhatsApp.</p>
+                <button type="button" onclick="copyAnswers()">Copy Answers</button>
             </div>
         </form>
     </div>
@@ -168,8 +170,11 @@
 
         document.getElementById("questionsForm").addEventListener("submit", function(event) {
             event.preventDefault();
+            sendAnswers();
+        });
 
-            const formData = new FormData(event.target);
+        function sendAnswers() {
+            const formData = new FormData(document.getElementById("questionsForm"));
             let message = "Hello Love ❤️\n\nHere are my Answers🥰\n\n";
 
             let count = 1;
@@ -183,10 +188,26 @@
             const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
             window.open(whatsappURL, "_blank");
-        });
+        }
+
+        function copyAnswers() {
+            const formData = new FormData(document.getElementById("questionsForm"));
+            let message = "Hello Love ❤️\n\nHere are my Answers🥰\n\n";
+
+            let count = 1;
+            formData.forEach((value, key) => {
+                message += `${count}🥰 ${value}\n`;
+                count++;
+            });
+
+            navigator.clipboard.writeText(message).then(() => {
+                alert("Answers copied to clipboard! Open WhatsApp and paste your answers.");
+            }).catch(err => {
+                alert("Failed to copy answers.");
+            });
+        }
 
         showQuestion(currentQuestion);
-
     </script>
 </body>
 </html>
