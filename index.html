@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sweet  Cate🥰</title>
+    <title>Sweet Cate🥰</title>
     <link rel="icon" href="https://i.ibb.co/XJXxnQt/file-1263.jpg" type="image/x-icon">
     <style>
         body {
@@ -170,10 +170,12 @@
             event.preventDefault();
 
             const formData = new FormData(event.target);
-            let message = "Here are my answers:\n\n";
+            let message = "Hello Love ❤️\n\nHere are my Answers🥰\n\n";
 
+            let count = 1;
             formData.forEach((value, key) => {
-                message += `${key}: ${value}\n`;
+                message += `${count}🥰 ${value}\n`;
+                count++;
             });
 
             const encodedMessage = encodeURIComponent(message);
@@ -184,6 +186,7 @@
         });
 
         showQuestion(currentQuestion);
+
     </script>
 </body>
 </html>
