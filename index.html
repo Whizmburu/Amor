@@ -89,53 +89,55 @@
     <div class="container">
         <h1>Sweetheart🥰Please Answer This</h1>
         <form id="questionsForm">
+            <!-- Updated Questions -->
             <div class="question active" id="q1">
-                <label>1. What was your first thought when you met me?</label>
-                <input type="text" name="1. First thought when met" required>
+                <label>1. What do you love the most about our time together?</label>
+                <input type="text" name="1. Most loved time together" required>
             </div>
             <div class="question" id="q2">
-                <label>2. What little things do I do that make you smile?</label>
-                <input type="text" name="2. Little things that make you smile" required>
+                <label>2. What’s one thing you think makes our relationship special?</label>
+                <input type="text" name="2. Unique thing about relationship" required>
             </div>
             <div class="question" id="q3">
-                <label>3. If you could take me anywhere right now, where would we go?</label>
-                <input type="text" name="3. Dream getaway with me" required>
+                <label>3. What is one thing you wish for us to experience together in the future?</label>
+                <input type="text" name="3. Future experience wish" required>
             </div>
             <div class="question" id="q4">
-                <label>4. What do you think is the most romantic thing about us?</label>
-                <input type="text" name="4. Most romantic thing about us" required>
+                <label>4. What’s your favorite way to show love to me?</label>
+                <input type="text" name="4. Favorite way to show love" required>
             </div>
             <div class="question" id="q5">
-                <label>5. When did you realize you were in love with me?</label>
-                <input type="text" name="5. Moment you fell in love" required>
+                <label>5. What’s one of the sweetest things I’ve done for you?</label>
+                <input type="text" name="5. Sweetest thing done by me" required>
             </div>
             <div class="question" id="q6">
-                <label>6. What song do you think best describes our love story?</label>
-                <input type="text" name="6. Song for our love story" required>
+                <label>6. When do you feel happiest when we’re together?</label>
+                <input type="text" name="6. Happiest moment together" required>
             </div>
             <div class="question" id="q7">
-                <label>7. What’s one thing about me that you admire most?</label>
-                <input type="text" name="7. Thing you admire most about me" required>
+                <label>7. What do you think is the key to keeping our love strong?</label>
+                <input type="text" name="7. Key to strong love" required>
             </div>
             <div class="question" id="q8">
-                <label>8. How would you describe our love in a single sentence?</label>
-                <input type="text" name="8. Our love in a sentence" required>
+                <label>8. If you could relive one moment with me, what would it be?</label>
+                <input type="text" name="8. Moment to relive" required>
             </div>
             <div class="question" id="q9">
-                <label>9. What’s a dream date idea that you’ve never shared with me?</label>
-                <input type="text" name="9. Secret dream date idea" required>
+                <label>9. What’s your favorite nickname for me and why?</label>
+                <input type="text" name="9. Favorite nickname" required>
             </div>
             <div class="question" id="q10">
-                <label>10. What is one thing you look forward to in our future together?</label>
-                <input type="text" name="10. Future dreams with me" required>
+                <label>10. What’s one thing you love about our future together?</label>
+                <input type="text" name="10. Love about future together" required>
             </div>
+            <!-- Navigation and Submission Buttons -->
             <div class="nav-buttons">
                 <button type="button" onclick="prevQuestion()">Previous</button>
                 <button type="button" id="nextButton" onclick="nextQuestion()">Next</button>
             </div>
             <div id="sendContainer" style="display: none;">
                 <p id="sendMessage">I love you ❤️💗 very very much Cate😘😘<br>To send your answers, tap the button below:</p>
-                <button type="submit">Send Answers</button>
+                <button type="button" onclick="sendAnswers()">Send Answers</button>
                 <p>Having a problem sending the answers? Press the copy button to copy your answers and paste them on WhatsApp.</p>
                 <button type="button" onclick="copyAnswers()">Copy Answers</button>
             </div>
@@ -167,11 +169,6 @@
                 showQuestion(currentQuestion);
             }
         }
-
-        document.getElementById("questionsForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            sendAnswers();
-        });
 
         function sendAnswers() {
             const formData = new FormData(document.getElementById("questionsForm"));
